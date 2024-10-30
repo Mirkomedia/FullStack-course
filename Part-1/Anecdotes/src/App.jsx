@@ -32,8 +32,8 @@ const App = () => {
   copy[selected] += 1
   setAnecdoteVotes(copy) 
  }
-const highestVotekey = Object.entries(anecdoteVotes).reduce((maxKey, [key, value]) =>{
-  return anecdoteVotes[maxKey] >= value ? maxKey : key
+const highestVotedAnecdote = Object.entries(anecdoteVotes).reduce((bestAnecdote, [key, value]) =>{
+  return anecdoteVotes[bestAnecdote] >= value ? bestAnecdote : key
 },0)
 
   return (
@@ -44,7 +44,7 @@ const highestVotekey = Object.entries(anecdoteVotes).reduce((maxKey, [key, value
       <button onClick={handleAnecdote}>next anecdote</button>
       <button onClick={handleVoting}>vote</button>
       <h1>Anecdote with most votes</h1>
-     {anecdotes[highestVotekey]}
+     {anecdotes[highestVotedAnecdote]}
     </div>
   )
 }
